@@ -1,36 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
+  <component name="ChangeListManager">
+    <list default="true" id="0e61250b-090b-478a-865d-bf81298e17f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/SlideItem.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/api/ComicApi.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/api/MarvelApi.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/MarvelModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/ComicService.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/viewModels/ComicViewModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/GradientContainer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/HomeView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/marvel_flutter_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/marvel_flutter_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <option name="show-excluded-files" value="false" />
-      </pane>
-    </panes>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_XL_API_28" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hQHnjrfObeOJQ1A4xOUPo671Up" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="DEBUGGABLE_DEVICE" value="Pixel_3a_XL_API_28 [emulator-5554]" />
+    <property name="DEBUGGABLE_PROCESS" value="com.example.marvel_flutter" />
+    <property name="DEBUGGER_ID" value="Java" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
+      <recent name="$PROJECT_DIR$/lib/services" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e61250b-090b-478a-865d-bf81298e17f9" name="Default Changelist" comment="" />
+      <created>1599936564420</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599936564420</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="365" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600012778540">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="365" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1600012778540" />
+    <state x="377" y="196" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1600020224654">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="377" y="196" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1600020224654" />
+    <state x="271" y="128" key="#main.dart" timestamp="1600020225269">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="271" y="128" key="#main.dart/0.0.1280.800@0.0.1280.800" timestamp="1600020225269" />
+    <state x="503" y="172" key="AndroidProcessChooserDialog" timestamp="1600182986005">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="503" y="172" key="AndroidProcessChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1600182986005" />
+    <state width="566" height="438" key="DebuggerActiveHint" timestamp="1600182821068">
+      <screen x="0" y="23" width="1280" height="724" />
+    </state>
+    <state width="566" height="438" key="DebuggerActiveHint/0.0.1280.800@0.0.1280.800" timestamp="1600018818579" />
+    <state width="566" height="438" key="DebuggerActiveHint/0.23.1280.724@0.23.1280.724" timestamp="1600182821068" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1600184762796">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600184762796" />
+    <state width="1238" height="241" key="GridCell.Tab.0.bottom/0.23.1280.724@0.23.1280.724" timestamp="1600182545358" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1600184762791">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1600184762791" />
+    <state width="1238" height="241" key="GridCell.Tab.0.center/0.23.1280.724@0.23.1280.724" timestamp="1600182545355" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1600184762785">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1600184762785" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.23.1280.724@0.0.1280.747" timestamp="1600018556530" />
+    <state width="1238" height="241" key="GridCell.Tab.0.left/0.23.1280.724@0.23.1280.724" timestamp="1600182545353" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1600184762793">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1600184762793" />
+    <state width="1238" height="241" key="GridCell.Tab.0.right/0.23.1280.724@0.23.1280.724" timestamp="1600182545357" />
+    <state width="1238" height="241" key="GridCell.Tab.1.bottom" timestamp="1600184759574">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="241" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600184759574" />
+    <state width="1238" height="241" key="GridCell.Tab.1.bottom/0.23.1280.724@0.23.1280.724" timestamp="1600182545366" />
+    <state width="1238" height="241" key="GridCell.Tab.1.center" timestamp="1600184759573">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="241" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1600184759573" />
+    <state width="1238" height="241" key="GridCell.Tab.1.center/0.23.1280.724@0.23.1280.724" timestamp="1600182545362" />
+    <state width="1238" height="241" key="GridCell.Tab.1.left" timestamp="1600184759573">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="241" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1600184759573" />
+    <state width="1238" height="241" key="GridCell.Tab.1.left/0.23.1280.724@0.23.1280.724" timestamp="1600182545360" />
+    <state width="1238" height="241" key="GridCell.Tab.1.right" timestamp="1600184759574">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="241" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1600184759574" />
+    <state width="1238" height="241" key="GridCell.Tab.1.right/0.23.1280.724@0.23.1280.724" timestamp="1600182545364" />
+    <state x="100" y="100" width="1080" height="600" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1600004037482">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="100" y="100" width="1080" height="600" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1280.800@0.0.1280.800" timestamp="1600004037482" />
+    <state x="365" y="22" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600004405272">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="365" y="22" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.800@0.0.1280.800" timestamp="1600004405272" />
+    <state x="202" y="143" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600182872326">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="202" y="143" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.800@0.0.1280.800" timestamp="1600182872326" />
+    <state x="292" y="157" width="695" height="486" key="find.popup" timestamp="1600179242146">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="292" y="157" width="695" height="486" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1600179242146" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint suspend="THREAD" type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
