@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marvel_flutter/widgets/SlideItem.dart';
 import 'package:marvel_flutter/models/MarvelModel.dart';
 import 'package:marvel_flutter/viewModels/ComicViewModel.dart';
-import 'package:marvel_flutter/views/GradientContainer.dart';
+import 'package:marvel_flutter/widgets/GradientContainer.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -42,6 +42,18 @@ class _HomeViewState extends State<HomeView> {
                 onRefresh: () => refreshComicList(comicViewModel, context),
                 child: ListView(
                   children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 28.0),
+                      child: Center(
+                        child: Text(
+                          '  MARVEL  ',
+                          style: TextStyle(
+                              fontFamily: 'Marvel',
+                              fontSize: 60,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
                     comicViewModel.comicList == null ||
                             comicViewModel.isRequestPending
                         ? buildBusyIndicator()
@@ -78,34 +90,51 @@ class _HomeViewState extends State<HomeView> {
 
   buildComicList(BuildContext context) {
     return Consumer<ComicViewModel>(
-        builder: (context, comicViewModel, child) => Container(
-              height: MediaQuery.of(context).size.height / 2,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                primary: false,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: comicViewModel.comicList == null
-                    ? 0
-                    : comicViewModel.comicList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Results comic = comicViewModel.comicList[index];
+        builder: (context, comicViewModel, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(top: 28.0),
+                    child: Text(
+                      '  Comics  ',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontFamily: 'Marvel',
+                          fontSize: 25,
+                          color: Colors.white),
+                    )),
+                Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 2,
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                        primary: false,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: comicViewModel.comicList == null
+                            ? 0
+                            : comicViewModel.comicList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Results comic = comicViewModel.comicList[index];
 
-                  return Padding(
-                    padding: EdgeInsets.only(right: 10.0),
-                    child: SlideItem(
-                      img: comic.thumbnail.path +
-                          "/portrait_fantastic." +
-                          comic.thumbnail.extension,
-                      title: comic.title,
-                      creators: comic.creators.items.length > 0
-                          ? comic.creators.items[0].name
-                          : "",
-                      price: comic.prices[0].price,
-                    ),
-                  );
-                },
-              ),
+                          return Padding(
+                            padding: EdgeInsets.only(right: 10.0),
+                            child: SlideItem(
+                              img: comic.thumbnail.path +
+                                  "/portrait_fantastic." +
+                                  comic.thumbnail.extension,
+                              title: comic.title,
+                              creators: comic.creators.items.length > 0
+                                  ? comic.creators.items[0].name
+                                  : "",
+                              price: comic.prices[0].price,
+                            ),
+                          );
+                        },
+                      ),
+                    ))
+              ],
             ));
   }
 

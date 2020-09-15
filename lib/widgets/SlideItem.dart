@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_flutter/widgets/GradientContainer.dart';
+
+import 'GradientCard.dart';
 
 class SlideItem extends StatefulWidget {
   final String img;
@@ -25,17 +28,15 @@ class _SlideItemState extends State<SlideItem> {
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: Container(
         height: MediaQuery.of(context).size.height / 1.5,
-        width: MediaQuery.of(context).size.width / 2.5,
-        child: Card(
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-          elevation: 3.0,
-          child: Column(
+        width: MediaQuery.of(context).size.width / 2.4,
+        child: GradientCard(
+          color: Colors.red, child: Column(
             children: <Widget>[
               Stack(
                 children: <Widget>[
                   Container(
-                    height: MediaQuery.of(context).size.height / 3.7,
+                    padding: EdgeInsets.all(8.0),
+                    height: MediaQuery.of(context).size.height / 3.1,
                     width: MediaQuery.of(context).size.width,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
@@ -48,68 +49,21 @@ class _SlideItemState extends State<SlideItem> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 6.0,
-                    right: 6.0,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0)),
-                      child: Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow[600],
-                              size: 10,
-                            ),
-                            Text(
-                              " ${widget.price} ",
-                              style: TextStyle(
-                                fontSize: 10.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 6.0,
-                    left: 6.0,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3.0)),
-                      child: Padding(
-                        padding: EdgeInsets.all(4.0),
-                        child: Text(
-                          " OPEN ",
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
-              SizedBox(height: 7.0),
               Padding(
-                padding: EdgeInsets.only(left: 15.0),
+                padding: EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    "${widget.title}",
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w800,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  child: Text("${widget.title}",
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      )),
                 ),
               ),
               SizedBox(height: 7.0),
@@ -118,15 +72,32 @@ class _SlideItemState extends State<SlideItem> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
+                    "Creator: "
                     "${widget.creators}",
                     style: TextStyle(
-                      fontSize: 12.0,
+                      color: Colors.white,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
                 ),
               ),
               SizedBox(height: 10.0),
+              Padding(
+                padding: EdgeInsets.only(left: 15.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    "Print Price: "
+                    "${widget.price}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
