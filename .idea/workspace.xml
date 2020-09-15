@@ -7,20 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e61250b-090b-478a-865d-bf81298e17f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/SlideItem.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/api/ComicApi.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/api/MarvelApi.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/MarvelModel.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/services/ComicService.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/viewModels/ComicViewModel.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/views/GradientContainer.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/views/HomeView.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/publickey" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/marvel_flutter_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/marvel_flutter_android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,26 +106,26 @@
     </state>
     <state width="566" height="438" key="DebuggerActiveHint/0.0.1280.800@0.0.1280.800" timestamp="1600018818579" />
     <state width="566" height="438" key="DebuggerActiveHint/0.23.1280.724@0.23.1280.724" timestamp="1600182821068" />
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1600184762796">
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1600185067546">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600184762796" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1600185067546" />
     <state width="1238" height="241" key="GridCell.Tab.0.bottom/0.23.1280.724@0.23.1280.724" timestamp="1600182545358" />
-    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1600184762791">
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1600185067545">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1600184762791" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1600185067545" />
     <state width="1238" height="241" key="GridCell.Tab.0.center/0.23.1280.724@0.23.1280.724" timestamp="1600182545355" />
-    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1600184762785">
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1600185067544">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1600184762785" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1600185067544" />
     <state width="1238" height="212" key="GridCell.Tab.0.left/0.23.1280.724@0.0.1280.747" timestamp="1600018556530" />
     <state width="1238" height="241" key="GridCell.Tab.0.left/0.23.1280.724@0.23.1280.724" timestamp="1600182545353" />
-    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1600184762793">
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1600185067546">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1600184762793" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1600185067546" />
     <state width="1238" height="241" key="GridCell.Tab.0.right/0.23.1280.724@0.23.1280.724" timestamp="1600182545357" />
     <state width="1238" height="241" key="GridCell.Tab.1.bottom" timestamp="1600184759574">
       <screen x="0" y="0" width="1280" height="800" />
@@ -159,10 +159,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="202" y="143" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.800@0.0.1280.800" timestamp="1600182872326" />
-    <state x="292" y="157" width="695" height="486" key="find.popup" timestamp="1600179242146">
+    <state x="292" y="157" width="695" height="486" key="find.popup" timestamp="1600184902544">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="292" y="157" width="695" height="486" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1600179242146" />
+    <state x="292" y="157" width="695" height="486" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1600184902544" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
