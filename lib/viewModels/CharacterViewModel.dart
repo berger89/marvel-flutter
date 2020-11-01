@@ -6,24 +6,24 @@ import 'package:marvel_flutter/api/ComicApi.dart';
 import 'package:marvel_flutter/models/ComicModel.dart';
 import 'package:marvel_flutter/services/MarvelService.dart';
 
-class ComicViewModel with ChangeNotifier {
+class CharacterViewModel with ChangeNotifier {
   bool isRequestPending = false;
-  bool isComicLoaded = false;
+  bool isCharacterLoaded = false;
   bool isRequestError = false;
 
-  List<Results> _comicList;
+  List<Results> _characterList;
 
-  List<Results> get comicList => _comicList;
+  List<Results> get characterList => _characterList;
 
-  MarvelService comicService;
+  MarvelService marvelService;
 
-  ComicViewModel() {
-    comicService = MarvelService(ComicApi());
+  CharacterViewModel() {
+    marvelService = MarvelService(ComicApi());
 
-    getLatestComics();
+    getLatestCharacters();
   }
 
-  Future<MarvelModel> getLatestComics() async {
+  Future<MarvelModel> getLatestCharacters() async {
     setRequestPendingState(true);
     this.isRequestError = false;
 
@@ -31,14 +31,14 @@ class ComicViewModel with ChangeNotifier {
     try {
       await Future.delayed(Duration(seconds: 0), () => {});
 
-      latest = await comicService
-          .getComics()
+      latest = await marvelService
+          .getCharacters()
           .catchError((onError) => this.isRequestError = true);
     } catch (e) {
       this.isRequestError = true;
     }
 
-    this.isComicLoaded = true;
+    this.isCharacterLoaded = true;
     updateModel(latest);
     setRequestPendingState(false);
     notifyListeners();
@@ -53,6 +53,6 @@ class ComicViewModel with ChangeNotifier {
   void updateModel(MarvelModel comics) {
     if (isRequestError) return;
 
-    _comicList = comics.data.results;
+    _characterList = comics.data.results;
   }
 }

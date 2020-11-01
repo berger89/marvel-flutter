@@ -29,10 +29,15 @@ dependencies:
   url_launcher: ^5.5.3
 
 dev_dependencies:
+  flutter_native_splash: ^0.1.9
+  flutter_launcher_icons: "^0.8.0"
 
   flutter_test:
     sdk: flutter
 
+flutter_native_splash:
+  image: assets/images/marvel-splash.png
+  color: "ffffff"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
