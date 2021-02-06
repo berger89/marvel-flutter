@@ -1,6 +1,4 @@
-import 'dart:ffi';
-
-class MarvelModel {
+class CharacterModel {
   int code;
   String status;
   String copyright;
@@ -9,7 +7,7 @@ class MarvelModel {
   String etag;
   Data data;
 
-  MarvelModel(
+  CharacterModel(
       {this.code,
       this.status,
       this.copyright,
@@ -18,7 +16,7 @@ class MarvelModel {
       this.etag,
       this.data});
 
-  MarvelModel.fromJson(Map<String, dynamic> json) {
+  CharacterModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     copyright = json['copyright'];
@@ -48,7 +46,7 @@ class Data {
   int limit;
   int total;
   int count;
-  List<Results> results;
+  List<MarvelCharacter> results;
 
   Data({this.offset, this.limit, this.total, this.count, this.results});
 
@@ -58,9 +56,9 @@ class Data {
     total = json['total'];
     count = json['count'];
     if (json['results'] != null) {
-      results = new List<Results>();
+      results = new List<MarvelCharacter>();
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new MarvelCharacter.fromJson(v));
       });
     }
   }
@@ -484,6 +482,71 @@ class Events {
       data['items'] = this.items.map((v) => v.toJson()).toList();
     }
     data['returned'] = this.returned;
+    return data;
+  }
+}
+
+class MarvelCharacter {
+  int id;
+  String name;
+  String description;
+  String modified;
+  String resourceUri;
+  List<Urls> urls;
+  Thumbnail thumbnail;
+  /*
+  List<Data> comics;
+  List<Data> stories;
+  List<Data> events;
+  List<Data> comics;
+   */
+  MarvelCharacter({
+    this.id,
+    this.name,
+    this.description,
+    this.modified,
+    this.resourceUri,
+    this.urls,
+    /*
+      this.thumbnail,
+      this.comics,
+      this.stories,
+      this.events,
+      this.series
+         */
+  });
+
+  MarvelCharacter.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    description = json['description'];
+    modified = json['modified'];
+    resourceUri = json['resourceUri'];
+    thumbnail = json['thumbnail'] != null
+        ? new Thumbnail.fromJson(json['thumbnail'])
+        : null;
+
+    if (json['urls'] != null) {
+      urls = new List<Urls>();
+      json['urls'].forEach((v) {
+        urls.add(new Urls.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['description'] = this.description;
+    data['modified'] = this.modified;
+    data['resourceUri'] = this.resourceUri;
+
+    if (this.urls != null) {
+      data['urls'] = this.urls.map((v) => v.toJson()).toList();
+    }
+    if (this.thumbnail != null) data['thumbnail'] = this.thumbnail.toJson();
+
     return data;
   }
 }

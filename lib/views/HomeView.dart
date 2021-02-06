@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_flutter/viewModels/CharacterViewModel.dart';
-import 'package:marvel_flutter/widgets/SlideItem.dart';
+import 'package:marvel_flutter/models/CharacterModel.dart';
 import 'package:marvel_flutter/models/ComicModel.dart';
+import 'package:marvel_flutter/viewModels/CharacterViewModel.dart';
 import 'package:marvel_flutter/viewModels/ComicViewModel.dart';
 import 'package:marvel_flutter/widgets/GradientContainer.dart';
+import 'package:marvel_flutter/widgets/SlideItem.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -25,8 +26,8 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<ComicViewModel, CharacterViewModel>(
-      builder: (context, model, characterViewModel, child) => Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body:
             GradientContainer(color: Colors.red, child: buildHomeView(context)),
       ),
@@ -34,43 +35,35 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget buildHomeView(BuildContext context) {
-    return Consumer2<ComicViewModel, CharacterViewModel>(
-        builder: (context, comicViewModel, characterViewModel, child) =>
-            ListView(
+    return SingleChildScrollView(
+      child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints viewportConstraints) {
+        return ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: 1000,
+          ),
+          child: Consumer2<ComicViewModel, CharacterViewModel>(
+            builder: (context, comicViewModel, characterViewModel, child) =>
+                Column(
               children: [
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: RefreshIndicator(
-                    color: Colors.transparent,
-                    backgroundColor: Colors.transparent,
-                    onRefresh: () => refreshComicList(comicViewModel, context),
-                    child: ListView(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(top: 28.0),
-                          child: Center(
-                            child: Text(
-                              '  MARVEL  ',
-                              style: TextStyle(
-                                  fontFamily: 'Marvel',
-                                  fontSize: 60,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        comicViewModel.comicList == null ||
-                                comicViewModel.isRequestPending
-                            ? buildBusyIndicator()
-                            : comicViewModel.isRequestError
-                                ? buildReqError()
-                                : buildComicList(context),
-                      ],
+                Padding(
+                  padding: EdgeInsets.only(top: 28.0),
+                  child: Center(
+                    child: Text(
+                      '  MARVEL  ',
+                      style: TextStyle(
+                          fontFamily: 'Marvel',
+                          fontSize: 60,
+                          color: Colors.white),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                ),
+                comicViewModel.comicList == null ||
+                        comicViewModel.isRequestPending
+                    ? buildBusyIndicator()
+                    : comicViewModel.isRequestError
+                        ? buildReqError()
+                        : buildComicList(context),
                 characterViewModel.characterList == null ||
                         characterViewModel.isRequestPending
                     ? buildBusyIndicator()
@@ -78,7 +71,11 @@ class _HomeViewState extends State<HomeView> {
                         ? buildReqError()
                         : buildCharacterList(context),
               ],
-            ));
+            ),
+          ),
+        );
+      }),
+    );
   }
 
   Widget buildBusyIndicator() {
@@ -123,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 2,
+                      height: MediaQuery.of(context).size.height / 1.7,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         primary: false,
@@ -133,7 +130,7 @@ class _HomeViewState extends State<HomeView> {
                             ? 0
                             : comicViewModel.comicList.length,
                         itemBuilder: (BuildContext context, int index) {
-                          Results comic = comicViewModel.comicList[index];
+                          ComicResults comic = comicViewModel.comicList[index];
 
                           return Padding(
                             padding: EdgeInsets.only(right: 10.0),
@@ -163,7 +160,7 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                     padding: EdgeInsets.only(top: 28.0),
                     child: Text(
-                      '  Character  ',
+                      '  Characters  ',
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           fontFamily: 'Marvel',
@@ -173,7 +170,7 @@ class _HomeViewState extends State<HomeView> {
                 Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 6.5,
+                      height: MediaQuery.of(context).size.height / 1.7,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         primary: false,
@@ -183,20 +180,20 @@ class _HomeViewState extends State<HomeView> {
                             ? 0
                             : characterViewModel.characterList.length,
                         itemBuilder: (BuildContext context, int index) {
-                          Results comic =
+                          MarvelCharacter marvelCharacter =
                               characterViewModel.characterList[index];
 
                           return Padding(
                             padding: EdgeInsets.only(right: 10.0),
                             child: SlideItem(
-                              img: comic.thumbnail.path +
+                              img: marvelCharacter.thumbnail.path +
                                   "/portrait_fantastic." +
-                                  comic.thumbnail.extension,
-                              title: comic.title,
-                              creators: comic.creators.items.length > 0
-                                  ? comic.creators.items[0].name
+                                  marvelCharacter.thumbnail.extension,
+                              title: marvelCharacter.name,
+                              creators: marvelCharacter.description.isNotEmpty
+                                  ? marvelCharacter.description
                                   : "",
-                              price: comic.prices[0].price,
+                              price: marvelCharacter.resourceUri,
                             ),
                           );
                         },

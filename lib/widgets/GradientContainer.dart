@@ -2,7 +2,6 @@
 // https://gist.github.com/felangel/96b231de636173a44e4787fb52614130#file-gradient_container-dart
 
 import 'package:flutter/material.dart';
-
 import 'package:meta/meta.dart';
 
 class GradientContainer extends StatelessWidget {

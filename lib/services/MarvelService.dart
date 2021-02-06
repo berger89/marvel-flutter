@@ -1,4 +1,5 @@
-import 'package:marvel_flutter/api/MarvelApi.dart';
+import 'package:marvel_flutter/api/IMarvelApi.dart';
+import 'package:marvel_flutter/models/CharacterModel.dart';
 import 'package:marvel_flutter/models/ComicModel.dart';
 
 class MarvelService {
@@ -6,11 +7,11 @@ class MarvelService {
 
   MarvelService(this.marvelApi);
 
-  Future<MarvelModel> getComics() async {
+  Future<ComicModel> getComics() async {
     return await marvelApi.getComics();
   }
 
-  Future<MarvelModel> getCharacters() async {
+  Future<CharacterModel> getCharacters() async {
     return await marvelApi.getCharacters();
   }
 }

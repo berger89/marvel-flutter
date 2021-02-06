@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:marvel_flutter/api/ComicApi.dart';
+import 'package:marvel_flutter/api/MarvelApi.dart';
 import 'package:marvel_flutter/models/ComicModel.dart';
 import 'package:marvel_flutter/services/MarvelService.dart';
 
@@ -11,9 +11,9 @@ class ComicViewModel with ChangeNotifier {
   bool isComicLoaded = false;
   bool isRequestError = false;
 
-  List<Results> _comicList;
+  List<ComicResults> _comicList;
 
-  List<Results> get comicList => _comicList;
+  List<ComicResults> get comicList => _comicList;
 
   MarvelService comicService;
 
@@ -23,11 +23,11 @@ class ComicViewModel with ChangeNotifier {
     getLatestComics();
   }
 
-  Future<MarvelModel> getLatestComics() async {
+  Future<ComicModel> getLatestComics() async {
     setRequestPendingState(true);
     this.isRequestError = false;
 
-    MarvelModel latest;
+    ComicModel latest;
     try {
       await Future.delayed(Duration(seconds: 0), () => {});
 
@@ -50,9 +50,9 @@ class ComicViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateModel(MarvelModel comics) {
+  void updateModel(ComicModel comicModel) {
     if (isRequestError) return;
 
-    _comicList = comics.data.results;
+    _comicList = comicModel.data.results;
   }
 }

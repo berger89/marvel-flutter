@@ -1,6 +1,4 @@
-import 'dart:ffi';
-
-class MarvelModel {
+class ComicModel {
   int code;
   String status;
   String copyright;
@@ -9,7 +7,7 @@ class MarvelModel {
   String etag;
   Data data;
 
-  MarvelModel(
+  ComicModel(
       {this.code,
       this.status,
       this.copyright,
@@ -18,7 +16,7 @@ class MarvelModel {
       this.etag,
       this.data});
 
-  MarvelModel.fromJson(Map<String, dynamic> json) {
+  ComicModel.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     status = json['status'];
     copyright = json['copyright'];
@@ -48,7 +46,7 @@ class Data {
   int limit;
   int total;
   int count;
-  List<Results> results;
+  List<ComicResults> results;
 
   Data({this.offset, this.limit, this.total, this.count, this.results});
 
@@ -58,9 +56,9 @@ class Data {
     total = json['total'];
     count = json['count'];
     if (json['results'] != null) {
-      results = new List<Results>();
+      results = new List<ComicResults>();
       json['results'].forEach((v) {
-        results.add(new Results.fromJson(v));
+        results.add(new ComicResults.fromJson(v));
       });
     }
   }
@@ -78,11 +76,11 @@ class Data {
   }
 }
 
-class Results {
+class ComicResults {
   int id;
   int digitalId;
   String title;
-  int issueNumber;
+  double issueNumber;
   String variantDescription;
   String description;
   String modified;
@@ -109,7 +107,7 @@ class Results {
   Creators stories;
   Events events;
 
-  Results(
+  ComicResults(
       {this.id,
       this.digitalId,
       this.title,
@@ -140,11 +138,11 @@ class Results {
       this.stories,
       this.events});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  ComicResults.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     digitalId = json['digitalId'];
     title = json['title'];
-    issueNumber = json['issueNumber'];
+    issueNumber = json['issueNumber'] + .0;
     variantDescription = json['variantDescription'];
     description = json['description'];
     modified = json['modified'];
