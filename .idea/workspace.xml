@@ -6,19 +6,7 @@
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e61250b-090b-478a-865d-bf81298e17f9" name="Default Changelist" comment="Updated HomeView.dart and viewmodel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/ComicApi.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/ComicApi.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/MarvelApi.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/MarvelApi.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/CharacterModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/CharacterModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/ComicModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/ComicModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/MarvelService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/MarvelService.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/viewModels/CharacterViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/viewModels/CharacterViewModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/viewModels/ComicViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/viewModels/ComicViewModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/views/HomeView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/HomeView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/GradientContainer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/GradientContainer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/SlideItem.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/SlideItem.dart" afterDir="false" />
-    </list>
+    <list default="true" id="0e61250b-090b-478a-865d-bf81298e17f9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,13 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604260254547</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updated API requests">
+      <created>1612628116000</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612628116005</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added splashscreen" />
     <MESSAGE value="Updated HomeView.dart and viewmodel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated HomeView.dart and viewmodel" />
+    <MESSAGE value="Updated API requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated API requests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="284" key="#Updates" timestamp="1609784101917">
@@ -122,10 +118,11 @@
     <state x="503" y="172" key="AndroidProcessChooserDialog/0.0.1280.800/1280.0.2560.1440@0.0.1280.800" timestamp="1612626644642" />
     <state x="503" y="172" key="AndroidProcessChooserDialog/0.0.1280.800@0.0.1280.800" timestamp="1604258194519" />
     <state x="503" y="178" key="AndroidProcessChooserDialog/0.25.1280.713/1280.25.2560.1415@0.25.1280.713" timestamp="1612627042464" />
-    <state x="195" y="25" key="CommitChangelistDialog2" timestamp="1611835555686">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="195" y="25" key="CommitChangelistDialog2" timestamp="1612628115365">
+      <screen x="0" y="25" width="1280" height="713" />
     </state>
     <state x="195" y="25" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1611835555686" />
+    <state x="195" y="25" key="CommitChangelistDialog2/0.25.1280.713/1280.25.2560.1415@0.25.1280.713" timestamp="1612628115365" />
     <state width="566" height="299" key="DebuggerActiveHint" timestamp="1612626161222">
       <screen x="0" y="25" width="1280" height="713" />
     </state>
@@ -203,10 +200,11 @@
     </state>
     <state x="141" y="25" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1609784674492" />
     <state x="141" y="25" width="997" height="713" key="SettingsEditor/0.25.1280.713@0.25.1280.713" timestamp="1609784010344" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1604260256961">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="240" y="150" key="Vcs.Push.Dialog.v2" timestamp="1612628118633">
+      <screen x="0" y="25" width="1280" height="713" />
     </state>
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1604260256961" />
+    <state x="240" y="150" key="Vcs.Push.Dialog.v2/0.25.1280.713/1280.25.2560.1415@0.25.1280.713" timestamp="1612628118633" />
     <state x="100" y="100" width="1080" height="600" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1604255856183">
       <screen x="0" y="23" width="1280" height="723" />
     </state>
@@ -241,12 +239,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/api/ComicApi.dart</url>
+          <url>file://$PROJECT_DIR$/lib/api/MarvelApi.dart</url>
           <line>63</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/api/ComicApi.dart</url>
+          <url>file://$PROJECT_DIR$/lib/api/MarvelApi.dart</url>
           <line>57</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
