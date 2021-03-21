@@ -1,3 +1,7 @@
+import 'generic/TextObjects.dart';
+import 'generic/Thumbnail.dart';
+import 'generic/Url.dart';
+
 class ComicModel {
   int code;
   String status;
@@ -93,7 +97,7 @@ class ComicResults {
   int pageCount;
   List<TextObjects> textObjects;
   String resourceURI;
-  List<Urls> urls;
+  List<Url> urls;
   Series series;
   List<Series> variants;
   List<Series> collections;
@@ -161,9 +165,9 @@ class ComicResults {
     }
     resourceURI = json['resourceURI'];
     if (json['urls'] != null) {
-      urls = new List<Urls>();
+      urls = new List<Url>();
       json['urls'].forEach((v) {
-        urls.add(new Urls.fromJson(v));
+        urls.add(new Url.fromJson(v));
       });
     }
     series =
@@ -283,47 +287,6 @@ class ComicResults {
   }
 }
 
-class TextObjects {
-  String type;
-  String language;
-  String text;
-
-  TextObjects({this.type, this.language, this.text});
-
-  TextObjects.fromJson(Map<String, dynamic> json) {
-    type = json['type'];
-    language = json['language'];
-    text = json['text'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    data['language'] = this.language;
-    data['text'] = this.text;
-    return data;
-  }
-}
-
-class Urls {
-  String type;
-  String url;
-
-  Urls({this.type, this.url});
-
-  Urls.fromJson(Map<String, dynamic> json) {
-    type = json['type'];
-    url = json['url'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    data['url'] = this.url;
-    return data;
-  }
-}
-
 class Series {
   String resourceURI;
   String name;
@@ -377,25 +340,6 @@ class Prices {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['type'] = this.type;
     data['price'] = this.price;
-    return data;
-  }
-}
-
-class Thumbnail {
-  String path;
-  String extension;
-
-  Thumbnail({this.path, this.extension});
-
-  Thumbnail.fromJson(Map<String, dynamic> json) {
-    path = json['path'];
-    extension = json['extension'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['path'] = this.path;
-    data['extension'] = this.extension;
     return data;
   }
 }

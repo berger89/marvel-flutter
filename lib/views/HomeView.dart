@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_flutter/models/CharacterModel.dart';
 import 'package:marvel_flutter/models/ComicModel.dart';
+import 'package:marvel_flutter/models/character/Character.dart';
+import 'package:marvel_flutter/models/creator/Creator.dart';
 import 'package:marvel_flutter/viewModels/CharacterViewModel.dart';
 import 'package:marvel_flutter/viewModels/ComicViewModel.dart';
+import 'package:marvel_flutter/viewModels/CreatorViewModel.dart';
 import 'package:marvel_flutter/widgets/GradientContainer.dart';
 import 'package:marvel_flutter/widgets/SlideItem.dart';
 import 'package:provider/provider.dart';
@@ -42,8 +44,10 @@ class _HomeViewState extends State<HomeView> {
           constraints: BoxConstraints(
             minHeight: 1000,
           ),
-          child: Consumer2<ComicViewModel, CharacterViewModel>(
-            builder: (context, comicViewModel, characterViewModel, child) =>
+          child:
+              Consumer3<ComicViewModel, CharacterViewModel, CreatorViewModel>(
+            builder: (context, comicViewModel, characterViewModel,
+                    creatorViewModel, child) =>
                 Column(
               children: [
                 Padding(
@@ -70,6 +74,12 @@ class _HomeViewState extends State<HomeView> {
                     : characterViewModel.isRequestError
                         ? buildReqError()
                         : buildCharacterList(context),
+                creatorViewModel.creatorList == null ||
+                        creatorViewModel.isRequestPending
+                    ? buildBusyIndicator()
+                    : creatorViewModel.isRequestError
+                        ? buildReqError()
+                        : buildCreatorList(context),
               ],
             ),
           ),
@@ -180,7 +190,7 @@ class _HomeViewState extends State<HomeView> {
                             ? 0
                             : characterViewModel.characterList.length,
                         itemBuilder: (BuildContext context, int index) {
-                          MarvelCharacter marvelCharacter =
+                          Character marvelCharacter =
                               characterViewModel.characterList[index];
 
                           return Padding(
@@ -203,6 +213,56 @@ class _HomeViewState extends State<HomeView> {
             ));
   }
 
+  buildCreatorList(BuildContext context) {
+    return Consumer<CreatorViewModel>(
+        builder: (context, creatorViewModel, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(top: 28.0),
+                    child: Text(
+                      '  Creators  ',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontFamily: 'Marvel',
+                          fontSize: 25,
+                          color: Colors.white),
+                    )),
+                Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 1.7,
+                      width: MediaQuery.of(context).size.width,
+                      child: ListView.builder(
+                        primary: false,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: creatorViewModel.creatorList == null
+                            ? 0
+                            : creatorViewModel.creatorList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Creator creator = creatorViewModel.creatorList[index];
+
+                          return Padding(
+                            padding: EdgeInsets.only(right: 10.0),
+                            child: SlideItem(
+                              img: creator.thumbnail.path +
+                                  "/portrait_fantastic." +
+                                  creator.thumbnail.extension,
+                              title: creator.fullName,
+                              creators: creator.suffix.isNotEmpty
+                                  ? creator.suffix
+                                  : "",
+                              price: creator.resourceUri,
+                            ),
+                          );
+                        },
+                      ),
+                    ))
+              ],
+            ));
+  }
+
   Future<void> refreshComicList(
       ComicViewModel comicViewModel, BuildContext context) {
     return comicViewModel.getLatestComics();
@@ -211,5 +271,10 @@ class _HomeViewState extends State<HomeView> {
   Future<void> refreshCharacterList(
       CharacterViewModel comicViewModel, BuildContext context) {
     return comicViewModel.getLatestCharacters();
+  }
+
+  Future<void> refreshCreatorList(
+      CreatorViewModel creatorViewModel, BuildContext context) {
+    return creatorViewModel.getLatestCreators();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel_flutter/viewModels/CharacterViewModel.dart';
 import 'package:marvel_flutter/viewModels/ComicViewModel.dart';
+import 'package:marvel_flutter/viewModels/CreatorViewModel.dart';
 import 'package:marvel_flutter/views/HomeView.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,9 @@ void main() {
       ),
       ChangeNotifierProvider<ComicViewModel>(
         create: (_) => ComicViewModel(),
+      ),
+      ChangeNotifierProvider<CreatorViewModel>(
+        create: (_) => CreatorViewModel(),
       ),
     ],
     child: MyApp(),

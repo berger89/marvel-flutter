@@ -3,42 +3,43 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:marvel_flutter/api/MarvelApi.dart';
-import 'package:marvel_flutter/models/ComicModel.dart';
+import 'package:marvel_flutter/models/creator/Creator.dart';
+import 'package:marvel_flutter/models/generic/DataWrapper.dart';
 import 'package:marvel_flutter/services/MarvelService.dart';
 
-class ComicViewModel with ChangeNotifier {
+class CreatorViewModel with ChangeNotifier {
   bool isRequestPending = false;
-  bool isComicLoaded = false;
+  bool isCreatorLoaded = false;
   bool isRequestError = false;
 
-  List<ComicResults> _comicList;
+  List<Creator> _creatorList;
 
-  List<ComicResults> get comicList => _comicList;
+  List<Creator> get creatorList => _creatorList;
 
-  MarvelService comicService;
+  MarvelService marvelService;
 
-  ComicViewModel() {
-    comicService = MarvelService(MarvelApi());
+  CreatorViewModel() {
+    marvelService = MarvelService(MarvelApi());
 
-    getLatestComics();
+    getLatestCreators();
   }
 
-  Future<ComicModel> getLatestComics() async {
+  Future<DataWrapper<Creator>> getLatestCreators() async {
     setRequestPendingState(true);
     this.isRequestError = false;
 
-    ComicModel latest;
+    DataWrapper<Creator> latest;
     try {
       await Future.delayed(Duration(seconds: 0), () => {});
 
-      latest = await comicService
-          .getComics()
+      latest = await marvelService
+          .getCreators()
           .catchError((onError) => this.isRequestError = true);
     } catch (e) {
       this.isRequestError = true;
     }
 
-    this.isComicLoaded = true;
+    this.isCreatorLoaded = true;
     updateModel(latest);
     setRequestPendingState(false);
     notifyListeners();
@@ -50,9 +51,9 @@ class ComicViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateModel(ComicModel comicModel) {
+  void updateModel(DataWrapper<Creator> creatorModel) {
     if (isRequestError) return;
 
-    _comicList = comicModel.data.results;
+    _creatorList = creatorModel.data.results;
   }
 }

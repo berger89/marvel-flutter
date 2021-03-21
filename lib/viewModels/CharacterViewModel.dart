@@ -3,7 +3,8 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:marvel_flutter/api/MarvelApi.dart';
-import 'package:marvel_flutter/models/CharacterModel.dart';
+import 'package:marvel_flutter/models/character/Character.dart';
+import 'package:marvel_flutter/models/generic/DataWrapper.dart';
 import 'package:marvel_flutter/services/MarvelService.dart';
 
 class CharacterViewModel with ChangeNotifier {
@@ -11,23 +12,23 @@ class CharacterViewModel with ChangeNotifier {
   bool isCharacterLoaded = false;
   bool isRequestError = false;
 
-  List<MarvelCharacter> _characterList;
+  List<Character> _characterList;
 
-  List<MarvelCharacter> get characterList => _characterList;
+  List<Character> get characterList => _characterList;
 
   MarvelService marvelService;
 
   CharacterViewModel() {
-    marvelService = MarvelService(ComicApi());
+    marvelService = MarvelService(MarvelApi());
 
     getLatestCharacters();
   }
 
-  Future<CharacterModel> getLatestCharacters() async {
+  Future<DataWrapper<Character>> getLatestCharacters() async {
     setRequestPendingState(true);
     this.isRequestError = false;
 
-    CharacterModel latest;
+    DataWrapper<Character> latest;
     try {
       await Future.delayed(Duration(seconds: 0), () => {});
 
@@ -50,7 +51,7 @@ class CharacterViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateModel(CharacterModel characterModel) {
+  void updateModel(DataWrapper<Character> characterModel) {
     if (isRequestError) return;
 
     _characterList = characterModel.data.results;
