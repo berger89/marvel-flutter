@@ -1,2 +1,2 @@
 # marvel-flutter
-Flutter App (Provider+MVVM design pattern) with Marvel Comics API 
+Flutter App with Marvel Comics API 
