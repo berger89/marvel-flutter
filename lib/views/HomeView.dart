@@ -5,11 +5,14 @@ import 'package:marvel_flutter/models/creator/Creator.dart';
 import 'package:marvel_flutter/viewModels/CharacterViewModel.dart';
 import 'package:marvel_flutter/viewModels/ComicViewModel.dart';
 import 'package:marvel_flutter/viewModels/CreatorViewModel.dart';
+import 'package:marvel_flutter/views/ComicDetailScreen.dart';
 import 'package:marvel_flutter/widgets/GradientContainer.dart';
 import 'package:marvel_flutter/widgets/SlideItem.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
+  static const String nameId = 'home_screen';
+
   @override
   _HomeViewState createState() => _HomeViewState();
 }
@@ -51,7 +54,7 @@ class _HomeViewState extends State<HomeView> {
                 Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 28.0),
+                  padding: EdgeInsets.only(top: 40.0, bottom: 20.0),
                   child: Center(
                     child: Text(
                       '  MARVEL  ',
@@ -62,24 +65,11 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                 ),
-                comicViewModel.comicList == null ||
-                        comicViewModel.isRequestPending
-                    ? buildBusyIndicator()
-                    : comicViewModel.isRequestError
-                        ? buildReqError()
-                        : buildComicList(context),
-                characterViewModel.characterList == null ||
-                        characterViewModel.isRequestPending
-                    ? buildBusyIndicator()
-                    : characterViewModel.isRequestError
-                        ? buildReqError()
-                        : buildCharacterList(context),
-                creatorViewModel.creatorList == null ||
-                        creatorViewModel.isRequestPending
-                    ? buildBusyIndicator()
-                    : creatorViewModel.isRequestError
-                        ? buildReqError()
-                        : buildCreatorList(context),
+                if (comicViewModel.isRequestPending) buildBusyIndicator(),
+                if (comicViewModel.isRequestError) buildReqError(),
+                buildComicList(context),
+                buildCharacterList(context),
+                buildCreatorList(context),
               ],
             ),
           ),
@@ -117,20 +107,16 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, comicViewModel, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                    padding: EdgeInsets.only(top: 28.0),
-                    child: Text(
-                      '  Comics  ',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          fontFamily: 'Marvel',
-                          fontSize: 25,
-                          color: Colors.white),
-                    )),
+                Text(
+                  '  Comics  ',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      fontFamily: 'Marvel', fontSize: 35, color: Colors.white),
+                ),
                 Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 1.7,
+                      height: MediaQuery.of(context).size.height / 2.5,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         primary: false,
@@ -142,18 +128,28 @@ class _HomeViewState extends State<HomeView> {
                         itemBuilder: (BuildContext context, int index) {
                           ComicResults comic = comicViewModel.comicList[index];
 
-                          return Padding(
-                            padding: EdgeInsets.only(right: 10.0),
-                            child: SlideItem(
-                              img: comic.thumbnail.path +
-                                  "/portrait_fantastic." +
-                                  comic.thumbnail.extension,
-                              title: comic.title,
-                              creators: comic.creators.items.length > 0
-                                  ? comic.creators.items[0].name
-                                  : "not available",
-                              price: comic.prices[0].price,
+                          return GestureDetector(
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 10.0),
+                              child: SlideItem(
+                                  img: comic.thumbnail.path +
+                                      "/portrait_fantastic." +
+                                      comic.thumbnail.extension,
+                                  title: comic.title,
+                                  titleMaxLines: 3,
+                                  subTitle: comic.creators.items.length > 0
+                                      ? comic.creators.items[0].name
+                                      : "",
+                                  subTitle2: "Price: \$" +
+                                      double.parse(comic.prices[0].price)
+                                          .toStringAsFixed(2)),
                             ),
+                            onTap: () {
+                              //Go to registration screen.
+                              Navigator.pushNamed(
+                                  context, ComicDetailScreen.nameId,
+                                  arguments: comic);
+                            },
                           );
                         },
                       ),
@@ -167,20 +163,16 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, characterViewModel, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                    padding: EdgeInsets.only(top: 28.0),
-                    child: Text(
-                      '  Characters  ',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          fontFamily: 'Marvel',
-                          fontSize: 25,
-                          color: Colors.white),
-                    )),
+                Text(
+                  '  Characters  ',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      fontFamily: 'Marvel', fontSize: 35, color: Colors.white),
+                ),
                 Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 1.7,
+                      height: MediaQuery.of(context).size.height / 2.3,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         primary: false,
@@ -200,10 +192,11 @@ class _HomeViewState extends State<HomeView> {
                                   "/portrait_fantastic." +
                                   marvelCharacter.thumbnail.extension,
                               title: marvelCharacter.name,
-                              creators: marvelCharacter.description.isNotEmpty
-                                  ? marvelCharacter.description
-                                  : "",
-                              price: marvelCharacter.resourceUri,
+                              titleMaxLines: 2,
+                              subTitle: marvelCharacter.description.isNotEmpty
+                                  ? marvelCharacter.description + "\n"
+                                  : "\n",
+                              detailsLink: "${marvelCharacter.urls[0].url}",
                             ),
                           );
                         },
@@ -218,20 +211,16 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, creatorViewModel, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                    padding: EdgeInsets.only(top: 28.0),
-                    child: Text(
-                      '  Creators  ',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          fontFamily: 'Marvel',
-                          fontSize: 25,
-                          color: Colors.white),
-                    )),
+                Text(
+                  '  Creators  ',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      fontFamily: 'Marvel', fontSize: 35, color: Colors.white),
+                ),
                 Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 1.7,
+                      height: MediaQuery.of(context).size.height / 2.3,
                       width: MediaQuery.of(context).size.width,
                       child: ListView.builder(
                         primary: false,
@@ -250,10 +239,11 @@ class _HomeViewState extends State<HomeView> {
                                   "/portrait_fantastic." +
                                   creator.thumbnail.extension,
                               title: creator.fullName,
-                              creators: creator.suffix.isNotEmpty
-                                  ? creator.suffix
+                              titleMaxLines: 1,
+                              subTitle: creator.comics != null
+                                  ? "# Commics: ${creator.comics.available}"
                                   : "",
-                              price: creator.resourceUri,
+                              detailsLink: "${creator.urls[0].url}",
                             ),
                           );
                         },

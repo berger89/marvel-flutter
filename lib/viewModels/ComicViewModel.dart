@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -35,6 +36,8 @@ class ComicViewModel with ChangeNotifier {
           .getComics()
           .catchError((onError) => this.isRequestError = true);
     } catch (e) {
+      log('data: $e');
+      print(e.toString());
       this.isRequestError = true;
     }
 

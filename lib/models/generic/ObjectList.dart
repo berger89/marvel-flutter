@@ -8,7 +8,7 @@ class ObjectList<T extends Summary> {
 
   ObjectList({this.available, this.collectionURI, this.items, this.returned});
 
-  fromJson(Map<String, dynamic> json, Summary item) {
+  ObjectList fromJson(Map<String, dynamic> json, Summary item) {
     available = json['available'];
     collectionURI = json['collectionURI'];
     if (json['items'] != null) {
@@ -18,6 +18,7 @@ class ObjectList<T extends Summary> {
       });
     }
     returned = json['returned'];
+    return this;
   }
 
   Map<String, dynamic> toJson() {

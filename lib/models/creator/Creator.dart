@@ -57,16 +57,16 @@ class Creator extends Data {
         ? new Thumbnail.fromJson(json['thumbnail'])
         : null;
     series = json['series'] != null
-        ? new SeriesList().fromJson(json['series'], new SeriesSummary())
+        ? SeriesList().fromJson(json['series'], new SeriesSummary())
         : null;
     comics = json['comics'] != null
-        ? new ComicList().fromJson(json['comics'], new ComicSummary())
+        ? ComicList().fromJson(json['comics'], new ComicSummary())
         : null;
     stories = json['stories'] != null
-        ? new StoryList().fromJson(json['stories'], new StorySummary())
+        ? StoryList().fromJson(json['stories'], new StorySummary())
         : null;
     events = json['events'] != null
-        ? new EventList().fromJson(json['events'], new EventSummary())
+        ? EventList().fromJson(json['events'], new EventSummary())
         : null;
 
     if (json['urls'] != null) {
