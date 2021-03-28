@@ -1,2 +1,5 @@
 # marvel-flutter
-Flutter App (Provider+MVVM design pattern) with Marvel Comics API 
+Flutter App with Marvel Comics API 
+
+![Marvel Preview](https://i.imgflip.com/53gthi.gif)
+
