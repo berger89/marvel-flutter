@@ -4,6 +4,5 @@ Flutter App with Marvel Comics API
 ![Marvel Preview](https://i.imgflip.com/53gthi.gif)
 
 ## API Marvel Comics 
+![Marvel](assets/images/marvel-logo.png "Marvel")
 https://developer.marvel.com/
-
-![Marvel Preview](https://cdn.iconscout.com/icon/free/png-256/marvel-282124.png)
